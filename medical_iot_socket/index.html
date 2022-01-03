@@ -1,0 +1,21 @@
+<img src="" id="video_img" />
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js" integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
+
+<script>
+const socket = io("ws://68.183.80.245:5001");
+
+socket.on("connect", () => {
+  console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+});
+
+socket.on("videostream_mobile", (data) => {
+
+  console.log(data);
+
+        image = document.getElementById('video_img');
+     
+    image.src = data.data.data;
+});
+
+
+</script>
